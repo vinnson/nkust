@@ -39,7 +39,7 @@ This RStudio server is a docker based service, which is separated from your loca
 
 
 ### How to switch off RStudio
-You can run press Ctrl+C from the console you setup the studio to stop, if you want this RStudio completely removed from your docker engine, you can typo commands below
+You can run press Ctrl+C from the console you setup the studio to stop, if you want this RStudio completely removed from your docker engine, you can fire the command below
 
 ```sh
 $ docker-compose down
