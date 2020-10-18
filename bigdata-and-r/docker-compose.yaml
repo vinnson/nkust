@@ -1,0 +1,10 @@
+version: '3'
+services:
+  rstudio:
+    image: rocker/rstudio
+    ports:
+      - "8787:8787"
+    volumes:
+      - "${PWD}/data:/home/rstudio"
+    env_file:
+      - rstudio-variables.env
