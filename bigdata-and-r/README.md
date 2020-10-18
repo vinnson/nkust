@@ -2,7 +2,7 @@
 ## Big Data & R
 ### How to setup Rstudio
 You don't need to install anything, but you need docker.
-When we have docker with you, you can follow commands below and fire them from console/termial to start your RStudio
+When you have docker with you, you can follow commands below and fire them from console/termial to start your RStudio
 
 ```sh
 $ git clone git@github.com:vinnson/nkust.git
