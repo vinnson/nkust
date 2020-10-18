@@ -7,7 +7,7 @@ When we have docker with you, you can follow these commands and fire them from c
 ```sh
 $ git clone git@github.com:vinnson/nkust.git
 $ cd nkust/bigdata-and-r
-$ docker-compose
+$ docker-compose up
 ```
 
 You will see texts below pop up
