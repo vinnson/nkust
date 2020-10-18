@@ -2,7 +2,7 @@
 ## Big Data & R
 ### How to setup Rstudio
 You don't need to install anything, but you need docker.
-When we have docker with you, you can follow these commands and fire them from console/termial to start your RStudio
+When we have docker with you, you can follow commands below and fire them from console/termial to start your RStudio
 
 ```sh
 $ git clone git@github.com:vinnson/nkust.git
@@ -36,6 +36,20 @@ This RStudio is a server host as a web service, that means you can login to your
 
 ### How to use data files
 This RStudio server is a docker based service, which is separated from your local enviornment, but we have mapped a folder called data in this folder that you can copy your data files to this folder and you can find it from the RStudio UI.
+
+
+### How to switch off RStudio
+You can run press Ctrl+C from the console you setup the studio to stop, if you want to this RStudio completely removed from your docker engine, you can typo commands below
+
+```sh
+$ docker-compose down
+```
+
+You will see texts below pop up
+```sh
+Removing bigdata-and-r_rstudio_1 ... done
+Removing network bigdata-and-r_default
+```
 
 License
 ----
