@@ -51,6 +51,10 @@ Removing bigdata-and-r_rstudio_1 ... done
 Removing network bigdata-and-r_default
 ```
 
+## Desktop version for mac
+https://cran.r-project.org/bin/macosx/R-4.0.3.pkg (R)
+https://download1.rstudio.org/desktop/macos/RStudio-1.3.1093.dmg (RStudio)
+
 License
 ----
 
