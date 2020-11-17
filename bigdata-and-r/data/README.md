@@ -1,0 +1,1 @@
+This is the folder you can store your data file and use them in R Studio
