@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+   ui:
+     ports:
+       - "8000:8000"
+     image: splunk/splunk:8.1.0.1
+     restart: always
+     environment:
+       SPLUNK_START_ARGS: "--accept-license"
+       SPLUNK_PASSWORD: splunkhomework
