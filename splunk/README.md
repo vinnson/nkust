@@ -37,7 +37,7 @@ VendorID=(?<vendorid>\d+) Code=(?<Code>\w+) AcctID=(?<acctid>\d+)
 index=_* OR index=* sourcetype=vendor_sales
 
 ## www1/access.log
-## source="access.log" sourcetype="www1_access"
+## source="access.log" sourcetype="access_combined_wcookie"
 
 ```sh
 [ access_combined_wcookie ]
