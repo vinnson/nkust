@@ -1,3 +1,7 @@
+## Connection
+URL: http://127.0.0.1:8000/zh-TW/account/login?return_to=%2Fzh-TW%2F
+Login: admin/splunkhomework
+
 
 ## mailsv/secure.log
 ## source="secure.log" sourcetype="mailsv"
