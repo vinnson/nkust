@@ -2,6 +2,8 @@
 URL: http://127.0.0.1:8000/zh-TW/account/login?return_to=%2Fzh-TW%2F
 Login: admin/splunkhomework
 
+## Target TIME
+04/14/2014 to 04/19/2014
 
 ## mailsv/secure.log
 ## source="secure.log" sourcetype="mailsv"
