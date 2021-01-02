@@ -2,3 +2,4 @@ data/.*
 *.docx
 *.csv
 *.zip
+!data/project/metadata/*.csv

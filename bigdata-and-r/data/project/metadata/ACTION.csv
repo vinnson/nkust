@@ -1,0 +1,22 @@
+代碼,意義,意義英文
+01,起步,Kick start
+02,倒車,Reverse
+03,停車操作中,Stop
+04,超車(含超越),overtake
+05,左轉彎,left turn
+06,右轉彎,right turn
+07,向左變換車道,change lanes to left
+08,向右變換車道,change lanes to right
+09,向前直行中,go straight
+10,插入行列,insert
+11,迴轉或橫越道路中,turning or crossing
+12,急減速或急停止,abrupt
+13,靜止(引擎熄火),stalled(engine off)
+14,停等(引擎未熄火),stalled(engine on)
+15,其他,others
+16,步行,walking
+17,靜立(止),stand
+18,奔跑,run
+19,上、下車,on or off
+20,其他,others
+21,不明,unknown
