@@ -1,28 +1,71 @@
 ## Calling Libraries
-# library('arules')
-# library('arulesViz')
 library('dplyr')
 library('tidyr')
-# library('highcharter')
 library('rio')
+library('httr')
 
-setwd("/home/rstudio/project") # Change Working Directory
-raw10811 <-rio::import("~/project/data/10811.csv") # Import Raw Data - Variable = raw
-raw10812 <-rio::import("~/project/data/10812.csv") # Import Raw Data - Variable = raw
-raw10901 <-rio::import("~/project/data/10901.csv") # Import Raw Data - Variable = raw
-raw10902 <-rio::import("~/project/data/10902.csv") # Import Raw Data - Variable = raw
-raw10903 <-rio::import("~/project/data/10903.csv") # Import Raw Data - Variable = raw
-raw10904 <-rio::import("~/project/data/10904.csv") # Import Raw Data - Variable = raw
-raw10905 <-rio::import("~/project/data/10905.csv") # Import Raw Data - Variable = raw
-raw10906 <-rio::import("~/project/data/10906.csv") # Import Raw Data - Variable = raw
-raw10907 <-rio::import("~/project/data/10907.csv") # Import Raw Data - Variable = raw
-raw10908 <-rio::import("~/project/data/10908.csv") # Import Raw Data - Variable = raw
-raw10909 <-rio::import("~/project/data/10909.csv") # Import Raw Data - Variable = raw
-raw10910 <-rio::import("~/project/data/10910.csv") # Import Raw Data - Variable = raw
-
-raw <- rbind(raw10811, raw10812, raw10901, raw10902, raw10903, raw10904, raw10905, raw10906, raw10907, raw10908, raw10909, raw10910)
-rm(raw10811, raw10812, raw10901, raw10902, raw10903, raw10904, raw10905, raw10906, raw10907, raw10908, raw10909, raw10910)
-
+if (!exists('raw') || !is.data.frame(get('raw'))) {
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/e1349cd4-62cb-407f-968f-cc6dd0e0da50")
+  raw202010 = content(httpget)
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/7934314c-70cf-442e-8af5-be17ef252563")
+  raw202009 = content(httpget)
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/7d75ec02-c15e-4e5b-93c4-126fbad4161d")
+  raw202008 = content(httpget)
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/43e8835f-679e-446f-98a5-00e99dc0af45")
+  raw202007 = content(httpget)
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/feeb65d3-15fa-49fb-b393-1f467e7f8fcc")
+  raw202006 = content(httpget)
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/4c532cd5-e812-4cfb-8f30-92292ebc5a57")
+  raw202005 = content(httpget)
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/dc1d49b4-e044-46ae-a817-417b5b4aef12")
+  raw202004 = content(httpget)
+  raw202004 <- raw202004 %>% rename(
+    當事者區分 = 當事者區分_類別,
+    GPS緯度 = GPS座標_緯度,
+    GPS經度 = GPS座標_經度
+  )
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/4fe2b264-1f40-401b-b717-7eeb7b38f026")
+  raw202003 = content(httpget)
+  raw202003 <- raw202003 %>% rename(
+    當事者區分 = 當事者區分_類別,
+    GPS緯度 = GPS座標_緯度,
+    GPS經度 = GPS座標_經度
+  )
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/fd29fb51-cc64-482e-92db-f2cddfff9d51")
+  raw202002 = content(httpget)
+  raw202002 <- raw202002 %>% rename(
+    當事者區分 = 當事者區分_類別,
+    GPS緯度 = GPS座標_緯度,
+    GPS經度 = GPS座標_經度
+  )
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/a80b4160-8b4c-491c-8e34-ac97b4f9634a")
+  raw202001 = content(httpget)
+  raw202001 <- raw202001 %>% rename(
+    當事者區分 = 當事者區分_類別,
+    GPS緯度 = GPS座標_緯度,
+    GPS經度 = GPS座標_經度
+  )
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/89bde10e-b9ea-4520-9cdb-ffccc4cc7b87")
+  raw201912 = content(httpget)
+  raw201912 <- raw201912 %>% rename(
+    當事者區分 = 當事者區分_類別,
+    GPS緯度 = GPS座標_緯度,
+    GPS經度 = GPS座標_經度
+  )
+  httpget <- GET("https://datacenter.taichung.gov.tw/swagger/OpenData/de52f9e3-e759-46de-9772-e599ec30b6ff")
+  raw201911 = content(httpget)
+  raw201911 <- raw201911 %>% rename(
+    當事者區分 = 當事者區分_類別,
+    GPS緯度 = GPS座標_緯度,
+    GPS經度 = GPS座標_經度
+  )
+  rm(httpget)
+  raw <- rbind(raw201911, raw201912, raw202001, raw202002, raw202003, raw202004, raw202005, raw202006,
+    raw202007, raw202008, raw202009, raw202010)
+  rm(raw201911, raw201912, raw202001, raw202002, raw202003, raw202004, raw202005, raw202006,
+    raw202007, raw202008, raw202009, raw202010)
+}
+raw <- raw %>% drop_na(年)
 row_refine <- select(raw, 年,月,日,時,分,區,死,受傷,天候,道路類別,速限,
                道路型態,事故位置,事故類型及型態,主要肇因,當事者區分,保護裝備,
                車輛用途,當事者行動狀態,飲酒情形,肇事因素個別,肇事因素主要,肇事逃逸,
@@ -150,3 +193,4 @@ names(PROTECTION_EQUIP_LOOKUP) <- PROTECTION_EQUIP$代碼
 ## Map Meta Data
 row_refine$保護裝備意義 <- PROTECTION_EQUIP_LOOKUP[row_refine$保護裝備]
 rm(PROTECTION_EQUIP, PROTECTION_EQUIP_LOOKUP)
+
